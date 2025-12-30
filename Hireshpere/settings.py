@@ -25,7 +25,7 @@ RAZOR_KEY_SECRET = '2DyOadFeAUMu9vGCg2RFMXKj'
 SECRET_KEY = 'django-insecure-np3wy)6^d&n^tuy@8u8x@=*)3nj_jay9+ypp_dai9+v=wo-^=!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
