@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+</head>
+<body>
+    <div class="header">HireSphere</div>
+
+    <form method="POST" enctype="multipart/form-data">  
+        {% csrf_token %}
+        <div class="main"> 
+            <div class="card">
+                <div class="card-left">
+                    <!-- ✅ Profile Picture Display -->
+                    {% if loggedin_user.profile_picture %}
+                        <img src="{{ loggedin_user.profile_picture.url }}" alt="Profile Picture">
+                    {% else %}
+                        <img src="{% static 'img/profile_boy.png' %}" alt="Profile Picture">
+                    {% endif %}
+                    
+                    <!-- ✅ Profile Picture Upload -->
+                    <input type="file" name="profile_picture" accept="image/*">
+                    
+                    <h3 class="mail">Name</h3>
+                    <input type="text" name="name" class="name" value="{{ loggedin_user.name }}">
+
+                    <h3 class="mail">Email</h3>
+                    <input type="text" name="email" class="mail" value="{{ loggedin_user.email }}">
+
+                    <!-- ✅ Resume Upload & View -->
+                    <h3 class="mail">Resume:</h3>
+                    {% if loggedin_user.resume %}
+                        <p>Current Resume: 
+                            <a href="{{ loggedin_user.resume.url }}" class="text-blue-500" target="_blank">View Resume</a>
+                        </p>
+                    {% endif %}
+                    <input type="file" name="resume">
+                </div>
+
+                <div class="card-right">
+                    <a href="{% url 'home' %}"><button type="button" class="cancel-button">x</button></a>
+
+                    <div class="phone">
+                        <h3>Phone Number</h3>
+                        <input type="text" name="phone" value="{{ loggedin_user.phone }}">
+                    </div>
+                    
+                    <div class="gender">
+                        <h3>Gender:</h3>
+                        <input type="text" name="gender" value="{{ loggedin_user.gender }}">
+                    </div>    
+
+                    <div class="address">
+                        <h3>Address</h3>
+                        <input type="text" name="address" value="{{ loggedin_user.address }}">
+                    </div>
+                    
+                    <div class="address">
+                        <h3>Skills</h3>
+                        <input type="text" name="skills" placeholder="e.g., nursing, Django, Python" value="{{ loggedin_user.skills }}">
+                    </div>
+                    
+                    <div class="address">
+                        <h3>Social Links</h3>
+                        <input type="text" name="social" placeholder="Enter your social links" value="{{ loggedin_user.social }}">
+                    </div>
+
+                    <button class="btn1" type="submit">UPDATE</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+    

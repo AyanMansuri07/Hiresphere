@@ -1,0 +1,103 @@
+{% extends 'nav.html' %}
+{% load static %}
+{% block content %}
+
+<div class="pt-[100px] bg-gray-100 min-h-screen flex justify-center px-4">
+  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-3xl">
+
+    <h2 class="text-3xl font-bold text-gray-800 text-center mb-6">Post a Tender</h2>
+    <form action="{% url 'post_tender' %}" method="POST" enctype="multipart/form-data" class="space-y-4">
+      {% csrf_token %}
+
+      <!-- Tender Title -->
+      <div>
+        <label class="block text-gray-700 font-medium">Tender Title</label>
+        <input type="text" name="title" required
+               class="w-full px-4 py-2 mt-1 border rounded-lg focus:ring focus:ring-blue-200">
+      </div>
+
+      <!-- Description -->
+      <div>
+        <label class="block text-gray-700 font-medium">Description</label>
+        <textarea name="description" required
+                  class="w-full px-4 py-2 mt-1 border rounded-lg focus:ring focus:ring-blue-200"></textarea>
+      </div>
+
+      <!-- Budget & Deadline -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-gray-700 font-medium">Budget (₹)</label>
+          <input type="number" name="budget" min="1" required
+                 class="w-full px-4 py-2 mt-1 border rounded-lg focus:ring focus:ring-blue-200">
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-medium">Deadline</label>
+          <input type="date" name="deadline" required
+                 class="w-full px-4 py-2 mt-1 border rounded-lg focus:ring focus:ring-blue-200">
+        </div>
+      </div>
+
+      <!-- Location & Industry Type -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-gray-700 font-medium">Location</label>
+          <input type="text" name="location" required
+                 class="w-full px-4 py-2 mt-1 border rounded-lg focus:ring focus:ring-blue-200">
+        </div>
+        <div>
+          <label class="block text-gray-700 font-medium">Industry Type</label>
+          <input type="text" name="industry_type" required
+                 class="w-full px-4 py-2 mt-1 border rounded-lg focus:ring focus:ring-blue-200">
+        </div>
+      </div>
+
+      <!-- Eligibility Criteria -->
+      <div>
+        <label class="block text-gray-700 font-medium">Eligibility Criteria</label>
+        <textarea name="eligibility" required
+                  class="w-full px-4 py-2 mt-1 border rounded-lg focus:ring focus:ring-blue-200"></textarea>
+      </div>
+
+      <!-- Contact Person & Email -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-gray-700 font-medium">Contact Person</label>
+          <input type="text" name="contact_person" required
+                 class="w-full px-4 py-2 mt-1 border rounded-lg focus:ring focus:ring-blue-200">
+        </div>
+        <div>
+          <label class="block text-gray-700 font-medium">Contact Email</label>
+          <input type="email" name="contact_email" required
+                 pattern="^[a-z](\.?[a-z_0-9])+(@gmail.com|@yahoo.com)"
+                 title="Please enter a valid email address (e.g., example@domain.com)"
+                 class="w-full px-4 py-2 mt-1 border rounded-lg focus:ring focus:ring-blue-200">
+        </div>
+      </div>
+
+      <!-- Contact Phone -->
+      <div>
+        <label class="block text-gray-700 font-medium">Contact Phone</label>
+        <input type="number" name="contact_phone" required min="1000000000"
+               class="w-full px-4 py-2 mt-1 border rounded-lg focus:ring focus:ring-blue-200">
+      </div>
+
+      <!-- File Upload -->
+      <div>
+        <label class="block text-gray-700 font-medium">Upload Terms & Conditions (PDF)</label>
+        <input type="file" name="terms_file" accept=".pdf" required
+               class="w-full mt-1 border px-4 py-2 rounded-lg file:bg-blue-100 file:border file:rounded-md file:px-2 file:py-1 file:text-blue-700">
+      </div>
+
+      <!-- Submit Button -->
+      <div>
+        <button type="submit"
+                class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+          Post Tender
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

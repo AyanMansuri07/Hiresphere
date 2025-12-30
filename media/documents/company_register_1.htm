@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/css/cp_register.css">
+    
+</head>
+<body>
+    <div class="header">
+        
+        HireSphere
+    </div>
+    <div class="body">
+        <div class="L_div">
+           
+            <img src=/static/img/cp_register.png alt=" " class="img1">
+            <p class="text">Empower Your Vision: Seamless Company Registration Made Simple</p>
+        </div>
+        <div class="R_div">
+            <div class="form-container">
+                <h1>Register as Company</h1> <a href="/"><button class="cancel-button" >x</button></a>
+                
+                <form action="#" method="post">
+                    <input type="hidden" name="csrfmiddlewaretoken" value="ziLXaN53LIHLURG1mWmPtgX2RMxviWNNTI8EEoH798tIdinY7UwWMR37gytWRbk6">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="cname" placeholder="Your name" required
+                       pattern="[A-Za-z\s\.\,]+"
+                    title="Title should only contain letters, spaces, periods, and commas.">
+                
+        
+                    <label for="email">Email</label>
+                    <input type="c_email" id="c_email" name="c_email" placeholder="Your Email" required
+                    pattern="^[a-z](\.?[a-z_0-9])+(@gmail.com|@yahoo.com)"
+                    title="Please enter a valid email address (e.g., example@domain.com)"  
+                    >
+                    
+        
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="*****" required
+                    maxlength="8" 
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" 
+                    title="Password must be at least 8 characters long, contain at least one lowercase letter, one uppercase letter, one number, and one special character." >
+                    
+                    <label for="phone">Mobile</label>
+                    <input type="text" id="phone" name="phone" placeholder="Phone number" required
+                    maxlength="10" 
+                  
+                    pattern="\d{10}" 
+                    title="Phone number must be in the format 1234569870" 
+                    title="" >
+
+                    
+                    <label for="gstno">gstno</label>
+                    <input type="text" id="gstno" name="gstno" placeholder="gstno" required>
+                   
+                 
+                    <div class="terms">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to all statements in <a href="#">Terms of service</a></label>
+                    </div>
+        
+                    <button type="submit">Register</button>
+                </form>
+            
+                <div class="login-link">
+                    
+                    <p>Already a member? <a href="/login">Log in</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

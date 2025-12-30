@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireSphere - User Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <div class="header">
+        
+        HireSphere
+    </div>
+    <div class="body">
+        <div class="form-container">
+            <a href="{% url 'home' %}"><button class="cancel-button" >x</button></a>
+            <h1>Login</h1>
+            <form action="#" method="POST">
+              {% csrf_token %}
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email"
+                  pattern="^[a-z](\.?[a-z_0-9])+(@gmail.com|@yahoo.com)"
+                    title="Please enter a valid email address (e.g., example@domain.com)"
+                required>
+                {% if emailerror %}<span style="color: red;">{{ emailerror }}</span> {% endif %}
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="*****" 
+                maxlength="8"  required>
+               
+                 {% if error %}<span style="color: red;">{{ error }}</span>
+                 
+                 {% endif %}
+
+                <div class="login-link1"> <p class="logintext">Forgot your password? <a href={% url "email" %}>Reset it</a></p></div>
+                {% if show_verify_button %}
+                      <a href="{% url 'verification' %}" class="verify-btn">Go to Verification Response</a>
+                {% endif %}
+                <button type="submit">Login</button>
+            </form>
+            <div class="login-link">
+                <p>Don't have an account? <a href="{% url "user_register" %}">Register here</a></p>
+               
+            </div>
+        </div>
+        <div class="R_div">
+           
+            <img src="{% static "img/login.png" %}" alt=" " class="img1">
+           
+                <p class="text">Access HireSphere with a single click – Secure, Fast, Reliable</p>
+            
+        </div>
+    
+    </div>
+    </div>
+</body>
+</html>

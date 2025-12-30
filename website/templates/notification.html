@@ -1,0 +1,51 @@
+{% extends 'nav.html' %}
+{% block content %}
+
+<div class="bg-gray-100 pt-[100px] min-h-screen flex items-center justify-center px-4">
+    <div class="w-full max-w-3xl bg-white shadow-lg rounded-xl p-6">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">📢 Notifications</h2>
+
+        {% if cp_notifications %}
+            <div class="space-y-4">
+                {% for notification in cp_notifications %}
+                <div class="p-4 border-l-4 rounded-lg shadow-sm flex justify-between items-center 
+                            {% if notification.is_read %}border-gray-400 bg-gray-100{% else %}border-blue-500 bg-blue-50{% endif %} 
+                            transition duration-300 ease-in-out hover:shadow-md">
+                    
+                    <!-- Notification Icon -->
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 flex items-center justify-center rounded-full 
+                                    {% if notification.is_read %}bg-gray-400{% else %}bg-blue-500{% endif %}">
+                            <span class="text-white text-lg">
+                                {% if notification.is_read %} ✅ {% else %} 🔔 {% endif %}
+                            </span>
+                        </div>
+            
+                        <!-- Notification Message -->
+                        <p class="text-gray-700 font-medium">
+                            {{ notification.message }}
+                        </p>
+                    </div>
+            
+                    <!-- Notification Timestamp -->
+                    <span class="text-sm text-gray-500">
+                        {{ notification.created_at|date:"F d, Y H:i A" }}
+                    </span>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center py-6">
+                <p class="text-gray-600 text-lg">No new notifications 📭</p>
+            </div>
+        {% endif %}
+        
+        <div class="mt-6 text-center">
+            <a href="{% url 'job_applicants' %}" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">
+                🔍 Check Applications
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

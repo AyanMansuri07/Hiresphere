@@ -1,0 +1,47 @@
+{% extends 'admin_nav.html' %}
+{% load static %}
+{% block admin %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive User Table</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin_userdetail.css' %}">
+</head>
+<body>
+    <div class="table-container">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">🏢 User List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Gender</th>
+                    <!-- <th>Downloading Status</th> -->
+                 
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in user %}
+                <tr>
+                    <td>{{i.name}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.phone}}</td>
+                    <td>{{i.gender}}</td>
+                    <!-- <td>
+                        <div class="progress-bar">
+                            <div class="progress-fill green" style="width: 90%;"></div>
+                        </div>
+                    </td>for graphical use .... -->
+                
+                </tr>
+                {% endfor %}
+              
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends 'nav.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Post a Job</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-100 mt-24">
+    <div class="max-w-4xl mx-auto p-8 bg-white shadow-lg rounded-lg mt-10">
+      <form method="POST" action="">
+        {% csrf_token %}
+        <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-8">Post a Job</h1>
+
+        <div class="mb-6">
+          <p class="text-lg font-medium text-gray-700">Job is created by: <span class="text-green-600">{{ company.cp_name }}</span></p>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Job Title -->
+          <div>
+            <label for="job_title" class="block text-sm font-medium text-gray-700">Job Title</label>
+            <input id="job_title" name="job_title" type="text" required placeholder="Job Title"
+              class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500" />
+          </div>
+
+          <!-- Job Description -->
+          <div>
+            <label for="job_description" class="block text-sm font-medium text-gray-700">Job Description</label>
+            <textarea id="job_description" name="job_description" required placeholder="Write job description"
+              class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"></textarea>
+          </div>
+
+          <!-- Categories -->
+          <div>
+            <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+            <select name="category" id="category" required
+              class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
+              {% for i in cat %}
+                <option value="{{ i.id }}">{{ i.category_name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <!-- Salary (Digits Only) -->
+          <div>
+            <label for="job_salary" class="block text-sm font-medium text-gray-700">Salary (INR)</label>
+            <input id="job_salary" name="job_salary" type="number" min="1" required placeholder="e.g. 30000"
+              class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500" />
+          </div>
+
+          <!-- Skills -->
+          <div>
+            <label for="job_skils" class="block text-sm font-medium text-gray-700">Skills</label>
+            <input id="job_skils" name="job_skils" type="text" required placeholder="e.g. Python, React"
+              class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500" />
+          </div>
+
+          <!-- Qualifications & Experience -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="job_qualification" class="block text-sm font-medium text-gray-700">Qualifications</label>
+              <input id="job_qualification" name="job_qualification" type="text" required placeholder="e.g. B.Tech, MCA"
+                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500" />
+            </div>
+            <div>
+              <label for="job_experience" class="block text-sm font-medium text-gray-700">Experience (Years)</label>
+              <input id="job_experience" name="job_experience" type="number" min="0" required placeholder="e.g. 2"
+                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500" />
+            </div>
+          </div>
+
+          <!-- Industry -->
+          <div>
+            <label for="job_industry" class="block text-sm font-medium text-gray-700">Industry</label>
+            <input id="job_industry" name="job_industry" type="text" required placeholder="e.g. IT Services"
+              class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500" />
+          </div>
+
+          <!-- Job Location -->
+          <div>
+            <label for="job_location" class="block text-sm font-medium text-gray-700">Address</label>
+            <input id="job_location" name="job_location" type="text" required placeholder="e.g. Bengaluru, Karnataka"
+              class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500" />
+          </div>
+
+          <!-- Vacancy (Digits Only) -->
+          <div>
+            <label for="job_vacancy" class="block text-sm font-medium text-gray-700">Vacancy</label>
+            <input id="job_vacancy" name="job_vacancy" type="number" min="1" required placeholder="e.g. 5"
+              class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500" />
+          </div>
+
+          <!-- Submit Button -->
+          <div class="text-center mt-6">
+            <button type="submit"
+              class="inline-flex items-center justify-center px-6 py-3 text-white bg-green-600 hover:bg-green-700 rounded-lg shadow-md text-lg font-medium transition duration-200">
+              <i class="fas fa-paper-plane mr-2"></i> Post Now
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+{% endblock %}

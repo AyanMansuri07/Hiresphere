@@ -1,0 +1,47 @@
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.table-container {
+    margin-left: 17%;
+    width: 83%;
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+}
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: #f1f1f1;
+    text-transform: uppercase;
+}
+.status {
+    border-radius: 12px;
+    padding: 5px 10px;
+    text-align: center;
+    width: 80px;
+}
+.active { background-color: #e3fcec; color: #31c48d; }
+.blocked { background-color: #fde2e2; color: #e02424; }
+.reported { background-color: #fff5da; color: #f59e0b; }
+.progress-bar {
+    height: 8px;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    overflow: hidden;
+}
+.progress-fill {
+    height: 100%;
+}
+.green { background-color: #31c48d; }
+.red { background-color: #e02424; }
+.orange { background-color: #f59e0b; }

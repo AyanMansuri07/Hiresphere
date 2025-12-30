@@ -1,0 +1,75 @@
+{% extends 'admin_nav.html' %}
+{% load static %}
+{% block admin %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Categories</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{% static 'css/sidebar.css' %}" />
+</head>
+<body class="bg-gray-100">
+
+  <!-- Sidebar (your existing fixed one) -->
+  
+  <!-- Main Content Wrapper -->
+  <div class="ml-[250px] min-h-screen p-6">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Page Heading -->
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-3xl font-bold text-gray-800">📂 Job Categories</h2>
+        <div class="flex gap-3">
+          <a href="{% url 'admin_home' %}" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg font-semibold shadow">
+            🏠 Home
+          </a>
+          <a href="{% url 'add_category' %}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold shadow">
+            ➕ Add Category
+          </a>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="bg-white rounded-lg shadow overflow-x-auto">
+        <table class="min-w-full table-auto text-sm text-left">
+          <thead class="bg-gray-200 text-gray-700 uppercase font-semibold">
+            <tr>
+              <th class="px-6 py-3">Category Name</th>
+              <th class="px-6 py-3">Description</th>
+              <th class="px-6 py-3">Image</th>
+              <th class="px-6 py-3">Job Type</th>
+              <th class="px-6 py-3">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100 text-gray-800">
+            {% for category in categories %}
+            <tr class="hover:bg-gray-50">
+              <td class="px-6 py-4 font-medium">{{ category.category_name }}</td>
+              <td class="px-6 py-4">{{ category.category_description }}</td>
+              <td class="px-6 py-4">
+                {% if category.image %}
+                <img src="{{ category.image.url }}" alt="Image" class="w-20 h-16 object-cover rounded border" />
+                {% else %}
+                <span class="italic text-gray-400">No Image</span>
+                {% endif %}
+              </td>
+              <td class="px-6 py-4">{{ category.job_type }}</td>
+              <td class="px-6 py-4">
+                <a href="{% url 'delete_category' category.id %}" class="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded-md font-semibold flex items-center justify-center gap-1">
+                  🗑️ Delete
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+{% endblock %}

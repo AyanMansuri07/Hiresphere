@@ -1,0 +1,161 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification Response</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/response.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Verification Status</h2>
+        <table>
+            <tr>
+                <th>Field</th>
+                <th>Details</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Company Name</td>
+                <td>{{ verification.company.cp_name }}</td>
+                <td>{{ field_status.verify_name }}</td>
+            </tr>
+            <tr>
+                <td>Company Email</td>
+                <td>{{ verification.company.cp_email }}</td>
+                <td>{{ field_status.verify_email }}</td>
+            </tr>
+            <tr>
+                <td>Contact Number</td>
+                <td>{{ verification.company.cp_phone }}</td>
+                <td>{{ field_status.verify_phone }}</td>
+            </tr>
+            <tr>
+                <td>GST No.</td>
+                <td>{{ verification.company.cp_gst_no }}</td>
+                <td>{{ field_status.verify_gst }}</td>
+            </tr>
+            <tr>
+                <td>Registration Number</td>
+                <td>{{ verification.registration_number }}</td>
+                <td>{{ field_status.verify_registration }}</td>
+            </tr>
+            <tr>
+                <td>Business Type</td>
+                <td>{{ verification.business_type }}</td>
+                <td>{{ field_status.verify_business_type }}</td>
+            </tr>
+            <tr>
+                <td>Insustry Type</td>
+                <td>{{ verification.industry_type }}</td>
+                <td>{{ field_status.verify_industry_type }}</td>
+            </tr>
+            <tr>
+                <td>Website</td>
+                <td>{{ verification.company_website }}</td>
+                <td>{{ field_status.verify_website }}</td>
+            </tr>
+            <tr>
+                <td>Company Address</td>
+                <td>{{ verification.company_address }}</td>
+                <td>{{ field_status.verify_address }}</td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td>{{ verification.city }}</td>
+                <td>{{ field_status.verify_city }}</td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td>{{ verification.state }}</td>
+                <td>{{ field_status.verify_state }}</td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td>{{ verification.country }}</td>
+                <td>{{ field_status.verify_country }}</td>
+            </tr>
+            {% comment %} <tr>
+                <td>Postal Code</td>
+                <td>{{ verification.postal_code }}</td>
+                <td>{{ field_status.verify_postal_code }}</td>
+            </tr> {% endcomment %}
+            <tr>
+                <td>Area Code</td>
+                <td>{{ verification.area_code }}</td>
+                <td>{{ field_status.verify_area_code }}</td>
+            </tr>
+            {% comment %} <tr>
+                <td>Tax ID</td>
+                <td>{{ verification.tax_id }}</td>
+                <td>{{ field_status.verify_tax_id }}</td>
+            </tr> {% endcomment %}
+            {% comment %} <tr>
+                <td>Company PAN</td>
+                <td>{{ verification.company_pan }}</td>
+                <td>{{ field_status.verify_company_pan }}</td>
+            </tr> {% endcomment %}
+            <tr>
+                <td>Company Logo</td>
+                <td>{{ verification.company_logo }}</td>
+                <td>{{ field_status.verify_logo }}</td>
+            </tr>
+            <tr>
+                <td>Representative Name</td>
+                <td>{{ verification.rep_name }}</td>
+                <td>{{ field_status.verify_rep_name }}</td>
+            </tr>
+            {% comment %} <tr>
+                <td>Representative Designation</td>
+                <td>{{ verification.rep_designation }}</td>
+                <td>{{ field_status.verify_rep_designation }}</td>
+            </tr> {% endcomment %}
+            <tr>
+                <td>Representative Phone</td>
+                <td>{{ verification.rep_phone }}</td>
+                <td>{{ field_status.verify_rep_phone }}</td>
+            </tr>
+            <tr>
+                <td>Representative Email</td>
+                <td>{{ verification.rep_email }}</td>
+                <td>{{ field_status.verify_rep_email }}</td>
+            </tr>
+            <tr>
+                <td>Business certificate</td>
+                <td>{{ verification.registration_certificate }}</td>
+                <td>{{ field_status.verify_certificate }}</td>
+            </tr>
+            <tr>
+                <td>Number of Employees</td>
+                <td>{{ verification.num_employees }}</td>
+                <td>{{ field_status.verify_num_employees }}</td>
+            </tr>
+            <tr>
+                <td>Year of Establishment</td>
+                <td>{{ verification.year_establishment }}</td>
+                <td>{{ field_status.verify_year_establishment }}</td>
+            </tr>
+            <tr>
+                <td>Company Description</td>
+                <td>{{ verification.company_description }}</td>
+                <td>{{ field_status.verify_company_description }}</td>
+            </tr>
+
+           
+            
+        </table>
+        <p class="note">All fields must be verified for login.</p>
+        <b>If you have unverified fields, please resubmit the unverified fields.</b>
+        <a href="{% url 'verification' %}" class="update">Update Verification Details</a>
+
+        <div class="login-btn-container">
+            <b>Otherwise</b>
+            <a href="{% url 'login' %}" class="login-btn">Proceed to Login</a>
+        </div>
+
+        <!-- Conditional Logic for Login Button -->
+      
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+{% extends 'admin_nav.html' %}
+{% block admin %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+    <link rel="stylesheet" href="{% static "css/admin_home.css" %}">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Left Sidebar // extend from admin_nav.html //-->
+
+
+    <!-- Main Content -->
+    <div class="content">
+        <h2>Admin Home Page</h2>
+
+        <div class="dashboard">
+            <!-- Company Card -->
+            <div class="card">
+                <h3>Companies</h3>
+                <p>Manage and verify registered companies.</p>
+                <a href={% url "admin_cpdetail" %}>View Companies</a>
+            </div>
+
+            <!-- User Card -->
+            <div class="card">
+                <h3>Users</h3>
+                <p>Manage and oversee registered users.</p>
+                <a href={% url "admin_userdetail" %}>View Users</a>
+            </div>
+
+            <!-- categories Card -->
+            <div class="card">
+                <h3>Categories</h3>
+                <p>Manage categories.</p>
+                <a href={% url "category_list" %}>View Companies</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+{% endblock %}

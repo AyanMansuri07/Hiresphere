@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireSphere - User Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/otp_verify.css' %}">
+  
+ 
+</head>
+<body>
+    <div class="header">
+       
+        HireSphere
+    </div>
+    <div class="body">
+        <div class="form-container">
+            <a href="{% url "home" %}"><button class="cancel-button" >x</button></a>
+            <h1>otp verification</h1>
+            <!-- <form action="" method="POST" onsubmit="return validateOTP()"> -->
+            <form action="" method="POST" >
+              {% csrf_token %}
+           
+               
+                <label for="otp">OTP</label>
+                <input type="otp" id="otp" name="otp1"  maxlength="4" 
+                pattern="^\d{4}$" 
+                    maxlength="4" 
+                     title="OTP must be exactly 4 digits." 
+                     placeholder="Enter OTP"> 
+                
+                {% if verify %}{{verify}}{% endif %}
+              
+
+
+              <a href="{% url "password" %}">  <button class="s_btn" type="submit">verify</button></a>
+            </form>
+           
+        </div>
+        <div class="R_div">
+            
+            <img src="{% static "img/otp.png" %}" alt=" " class="img1">
+            <div class="imgtitle1">
+                <p class="text">Verify your identity with the OTP we just sent you!</p>
+            </div>
+        </div>
+        {% if usererror %}
+        <script>
+            alert("{{ usererror }}");
+        </script>
+        {% endif %}
+        
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+{% extends 'nav.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Applicants</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="min-h-screen flex items-center justify-center px-4">
+        <div class="w-full max-w-4xl bg-white shadow-lg rounded-xl p-6 my-10">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">📝 Job Applicants</h2>
+
+            {% if messages %}
+                <div class="text-center mb-6">
+                    {% for message in messages %}
+                        <div class="p-4 text-lg font-semibold text-white bg-green-500 rounded-lg">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if applicants %}
+                <div class="space-y-6">
+                    {% for applicant in applicants %}
+                        <div class="p-5 border-l-4 border-blue-500 bg-blue-50 rounded-lg shadow-sm">
+                            <div class="flex justify-between items-center mb-2 flex-wrap gap-2">
+                                <div>
+                                    <p class="text-lg text-gray-800 font-semibold">
+                                        {{ applicant.user.name }}
+                                    </p>
+                                    <p class="text-sm text-gray-600">
+                                        📧 {{ applicant.user.email }}
+                                    </p>
+                                    <p class="text-sm text-gray-700 mt-1">
+                                        applied for <strong>{{ applicant.job.job_title }}</strong>
+                                    </p>
+                                </div>
+                                <a href="{% url 'user_verifybycp' applicant.id %}" 
+                                   class="bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition">
+                                    ✅ Verify Details
+                                </a>
+                            </div>
+                            <p class="text-sm text-gray-600">
+                                💰 Expected Salary: ₹{{ applicant.expected_salary }} 
+                            </p>
+                            <p class="text-sm text-gray-500">
+                                📅 Applied At: {{ applicant.applied_at|date:"F d, Y H:i A" }}
+                            </p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="text-center py-6">
+                    <p class="text-gray-600 text-lg">No applicants found 📭</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

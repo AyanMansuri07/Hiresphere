@@ -1,0 +1,45 @@
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(45deg, #1e1e2f, #2a2a4a);
+    color: white;
+    padding-top: 20px;
+    position: fixed;
+    transition: 0.3s;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: wheat;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    margin: 5px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.sidebar a i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.sidebar .active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+

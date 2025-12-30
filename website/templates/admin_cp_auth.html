@@ -1,0 +1,138 @@
+
+
+{% load static %}
+
+{% block admin %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Verification</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800">Company Verification</h2>
+
+        <div class="mb-4">
+            <p class="text-gray-700"><strong>Company Name:</strong> {{ verification.company.cp_name }}</p>
+            <p class="text-gray-700"><strong>Company Email:</strong> {{ verification.company.cp_email }}</p>
+        </div>
+
+        <form method="post" class="space-y-4">
+            {% csrf_token %}
+            <table class="w-full border-collapse border border-gray-300 table-auto">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="border p-2 text-center">Field Name</th>
+                        <th class="border p-2 text-center">Data</th>
+                        <th class="border p-2 text-center">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                <tr class="border"><td class="border p-2">Company Name</td><td class="border p-2">{{ verification.company.cp_name }}</td><td class="border p-2"><input type="checkbox" name="verify_name" ></td></tr>
+                <tr class="border"><td>Company Email</td><td>{{ verification.company.cp_email }}</td><td><input type="checkbox" name="verify_email" ></td></tr>
+                <tr class="border"><td>Contact Number</td><td>{{ verification.company.cp_phone }}</td><td><input type="checkbox" name="verify_phone"></td></tr>
+                <tr class="border"><td>GST No.</td><td>{{ verification.company.cp_gst_no }}</td><td><input type="checkbox" name="verify_gst"></td></tr>
+
+                
+
+                <tr class="border"><td>Registration Number</td><td>{{ verification.registration_number }}</td><td><input type="checkbox" name="verify_registration"></td></tr>
+                <tr class="border"><td>Business Type</td><td>{{ verification.business_type }}</td><td><input type="checkbox" name="verify_business_type"></td></tr>
+                <tr class="border"><td>Industry Type</td><td>{{ verification.industry_type }}</td><td><input type="checkbox" name="verify_industry_type"></td></tr>
+                <tr class="border"><td>Website</td><td><a href="{{ verification.company_website }}" target="_blank">{{ verification.company_website }}</a></td><td><input type="checkbox" name="verify_website"></td></tr>
+                <tr class="border"><td>Company Address</td><td>{{ verification.company_address }}</td><td><input type="checkbox" name="verify_address"></td></tr>
+                <tr class="border"><td>City</td><td>{{ verification.city }}</td><td><input type="checkbox" name="verify_city"></td></tr>
+                <tr class="border"><td>State</td><td>{{ verification.state }}</td><td><input type="checkbox" name="verify_state"></td></tr>
+                <tr class="border"><td>Country</td><td>{{ verification.country }}</td><td><input type="checkbox" name="verify_country"></td></tr>
+                {% comment %} <tr class="border"><td>Postal Code</td><td>{{ verification.postal_code }}</td><td><input type="checkbox" name="verify_postal_code"></td></tr> {% endcomment %}
+                <tr class="border"><td>Area Code</td><td>{{ verification.area_code }}</td><td><input type="checkbox" name="verify_area_code"></td></tr>
+                {% comment %} <tr class="border"><td>Tax ID</td><td>{{ verification.tax_id }}</td><td><input type="checkbox" name="verify_tax_id"></td></tr> {% endcomment %}
+                {% comment %} <tr class="border"><td>Company PAN</td><td>{{ verification.company_pan }}</td><td><input type="checkbox" name="verify_company_pan"></td></tr> {% endcomment %}
+                <tr class="border">
+                    <td>Registration Certificate</td>
+                    <td><a href="{{ verification.registration_certificate.url }}" target="_blank">View Certificate</a></td>
+                    <td><input type="checkbox" name="verify_certificate"></td>
+                </tr>
+                <tr class="border">
+                    <td>Company Logo</td>
+                    <td>{% if verification.company_logo %}<img src="{{ verification.company_logo.url }}" alt="Company Logo" width="100">{% else %}No Logo{% endif %}</td>
+                    <td><input type="checkbox" name="verify_logo" ></td>
+                </tr>
+                <tr class="border">
+                    <td>Government ID</td>
+                    <td><a href="{{ verification.government_id.url }}" target="_blank">View ID</a></td>
+                    <td><input type="checkbox" name="verify_government_id"></td>
+                </tr>
+                <tr class="border"><td>Representative Name</td><td>{{ verification.rep_name }}</td><td><input type="checkbox" name="verify_rep_name"></td></tr>
+                {% comment %} <tr class="border"><td>Representative Designation</td><td>{{ verification.rep_designation }}</td><td><input type="checkbox" name="verify_rep_designation"></td></tr> {% endcomment %}
+                <tr class="border"><td>Representative Phone</td><td>{{ verification.rep_phone }}</td><td><input type="checkbox" name="verify_rep_phone"></td></tr>
+                <tr class="border"><td>Representative Email</td><td>{{ verification.rep_email }}</td><td><input type="checkbox" name="verify_rep_email"></td></tr>
+                <tr class="border"><td>Number of Employees</td><td>{{ verification.num_employees }}</td><td><input type="checkbox" name="verify_num_employees"></td></tr>
+                <tr class="border"><td>Year of Establishment</td><td>{{ verification.year_establishment }}</td><td><input type="checkbox" name="verify_year_establishment"></td></tr>
+                <tr class="border"><td>Company Description</td><td>{{ verification.company_description }}</td><td><input type="checkbox" name="verify_company_description"></td></tr>
+                
+                <tr class="border">
+                    <td>LinkedIn Profile</td>
+                    <td><a href="{{ verification.linkedin_profile }}" target="_blank">{{ verification.linkedin_profile }}</a></td>
+                    <td><input type="checkbox" name="linkedin_profile"></td>
+                </tr>
+                
+                </tbody>
+            </table>
+
+            <div class="flex justify-end">
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Save Verification</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+{% endblock %}
+ 
+
+<!-- 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Verification Details</title>
+    <link rel="stylesheet" href="{% static 'css/admin_cp_auth.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Company Verification Details</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <th>Field</th>
+                    <th>Details</th>
+                    <th>Verify</th>
+                </tr>
+                <tr><td>Company Name</td><td>{{ verification.company.cp_name }}</td><td><input type="checkbox" name="verify_name" ></td></tr>
+                <tr><td>Company Email</td><td>{{ verification.company.cp_email }}</td><td><input type="checkbox" name="verify_email"></td></tr>
+                <tr><td>Contact Number</td><td>{{ verification.company.cp_phone }}</td><td><input type="checkbox" name="verify_phone"></td></tr>
+                <tr><td>GST No.</td><td>{{ verification.company.cp_gst_no }}</td><td><input type="checkbox" name="verify_gst"></td></tr>
+                <tr><td>Registration Number</td><td>{{ verification.registration_number }}</td><td><input type="checkbox" name="verify_registration"></td></tr>
+                <tr><td>Website</td><td>{{ verification.website }}</td><td><input type="checkbox" name="verify_website"></td></tr>
+                <tr><td>Branch Details</td><td>{{ verification.branch_details }}</td><td><input type="checkbox" name="verify_branch"></td></tr>
+                <tr><td>Working Field</td><td>{{ verification.working_field }}</td><td><input type="checkbox" name="verify_working_field"></td></tr>
+                <tr><td>Address</td><td>{{ verification.address }}</td><td><input type="checkbox" name="verify_address"></td></tr>
+                <tr>
+                    <td>Registration Certificate</td>
+                    <td><a href="" target="_blank">View Certificate</a></td>
+                    <td><input type="checkbox" name="verify_certificate"></td>
+                </tr>
+            </table>
+            <button type="submit" class="btn2">Authenticate</button>
+            <a href="{% url 'admin_cpdetail' %}" class="btn">Back to Company List</a>
+        </form>
+    </div>
+</body>
+</html>
+ -->

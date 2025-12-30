@@ -1,0 +1,70 @@
+{% extends 'admin_nav.html' %}
+{% load static %}
+{% block admin %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin_userdetail.css' %}">
+</head>
+<body>
+    <div class="table-container">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">🏢 Company List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Company Name</th>
+                    <th>Email</th>
+                    <th>Verification Status</th>
+                    <th>Company Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for company in companies %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ company.cp_name }}</td>
+                    <td>{{ company.cp_email }}</td>
+                    <td>
+                        {% if company.verification_status == "Verified" %}
+                            <span class="status verified">✔ Verified</span>
+                        {% elif company.verification_status == "Pending" %}
+                            <span class="status pending">⌛ Pending</span>
+                        {% elif company.verification_status == "Updated" %}
+                            <span class="status updated">📥 Updated</span>
+                        {% else %}
+                            <span class="status new">🆕 New</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if company.status == "Verified" %}
+                            <span class="status verified">✔ Verified</span>
+                        {% else %}
+                            <span class="status rejected">❌ Unverified</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{% url 'admin_cp_auth' company.cp_email %}" class="action-btn">
+                            View Info
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center text-gray-600 py-4">No companies found</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+{% endblock %}
+
+cp detail na page ma nakhi deje

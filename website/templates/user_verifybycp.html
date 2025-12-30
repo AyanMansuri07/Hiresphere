@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Applicant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+    <div class="w-full max-w-3xl bg-white shadow-lg rounded-xl p-8 mt-10 mb-10">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">📌 Applicant Details</h2>
+
+        <!-- Applicant Info -->
+        <div class="p-6 border rounded-lg bg-gray-50 shadow-sm space-y-3">
+            <p><strong>👤 Name:</strong> {{ applicant.user.name }}</p>
+            <p><strong>📧 Email:</strong> {{ applicant.user.email }}</p>
+            <p><strong>📍 Location:</strong> {{ applicant.user.address|default:"N/A" }}</p>
+            <p><strong>💰 Expected Salary:</strong> ₹{{ applicant.expected_salary|default:"Not specified" }}</p>
+            <p><strong>📄 Cover Letter:</strong> 
+                {{ applicant.cover_letter|default:"Not provided" }}
+            </p>
+            <p><strong>🔗 LinkedIn:</strong> 
+                {% if applicant.linkedin %}
+                    <a href="{{ applicant.linkedin }}" target="_blank" class="text-blue-600 hover:underline">
+                        {{ applicant.linkedin }}
+                    </a>
+                {% else %}
+                    N/A
+                {% endif %}
+            </p>
+            <p><strong>📂 Resume:</strong> 
+                {% if applicant.resume %}
+                    <a href="{{ applicant.resume.url }}" target="_blank" class="text-green-600 hover:underline">📄 View Resume</a>
+                {% else %}
+                    Not uploaded
+                {% endif %}
+            </p>
+        </div>
+
+        <!-- Interview Setup -->
+        <div class="mt-6 p-6 border rounded-lg bg-gray-50 shadow-sm">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">📅 Setup Interview</h3>
+
+            <form method="POST">
+                {% csrf_token %}
+                <label for="interview_date" class="block text-sm font-medium text-gray-700 mb-2">Select Interview Date</label>
+                <input type="datetime-local" name="interview_date" id="interview_date"
+                       class="border p-2 rounded w-full focus:ring-blue-500 focus:border-blue-500" required>
+
+                {% if error %}
+                    <p class="mt-2 text-red-500 text-sm">{{ error }}</p>
+                {% endif %}
+
+                <div class="mt-4">
+                    <button type="submit"
+                            class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">
+                        ✅ Select Date
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Verification</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-3xl">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">
+          Company Verification
+        </h2>
+
+        <!-- Basic Company Information -->
+        <h3 class="text-xl font-semibold text-gray-700 mb-2">
+          Basic Company Information
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-gray-700 mb-1" for="company-name">
+              Company Name
+            </label>
+            <input class="border border-gray-300 p-2 rounded w-full" id="company-name" name="cp_name" type="text" 
+              value="{{companies.cp_name}}" readonly />
+          </div>
+          <div>
+            <label class="block text-gray-700 mb-1" for="registration-number">
+              Registration Number
+            </label>
+            <input class="border border-gray-300 p-2 rounded w-full" id="registration-number" type="text" name="registration_number" placeholder="Registration Number" value="{{cp_verify_obj.registration_number|default_if_none:''}}" required />
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+          <div>
+            <label class="block text-gray-700 mb-1" for="business-type">
+              Business Type
+            </label>
+            <select class="border border-gray-300 p-2 rounded w-full" name="business_type" id="business-type" required>
+              <option value="" disabled selected>Select Business Type</option>
+              <option value="private">Private</option>
+              <option value="public">Public</option>
+              <option value="llp">LLP</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-gray-700 mb-1" for="industry-type">
+              Industry Type
+            </label>
+            <select class="border border-gray-300 p-2 rounded w-full" name="industry_type" id="industry-type" required>
+              <option value="" disabled selected>Select Industry Type</option>
+              <option value="it">IT</option>
+              <option value="finance">Finance</option>
+              <option value="healthcare">Healthcare</option>
+              <option value="manufacturing">Manufacturing</option>
+              <option value="retail">Retail</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Contact Details -->
+        <h3 class="text-xl font-semibold text-gray-700 mb-2">Contact Details</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-gray-700 mb-1" for="company-email">Company Email</label>
+            <input class="border border-gray-300 p-2 rounded w-full" id="company-email" type="email" name="cp_email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" title="Enter a valid email" placeholder="Email" value="{{companies.cp_email}}" required />
+          </div>
+          <div>
+            <label class="block text-gray-700 mb-1" for="company-phone">Company Phone Number</label>
+            <input class="border border-gray-300 p-2 rounded w-full" id="company-phone" type="text" name="cp_phone" placeholder="Phone Number" value="{{companies.cp_phone}}" required pattern="[0-9]{10,15}" title="Enter a valid phone number (10-15 digits)" />
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-1" for="company-website">Company Website (Optional)</label>
+          <input class="border border-gray-300 p-2 rounded w-full" id="company-website" type="url" placeholder="https://" name="company_website" value="{{cp_verify_obj.company_website|default_if_none:''}}" />
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-1" for="company-address">Company Address</label>
+          <textarea class="border border-gray-300 p-2 rounded w-full" id="company-address" placeholder="Street Address, Area, etc." name="company_address" rows="2" required>{{cp_verify_obj.company_address}}</textarea>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+          <div>
+            <label class="block text-gray-700 mb-1" for="city">City</label>
+            <input class="border border-gray-300 p-2 rounded w-full" id="city" type="text" name="city" placeholder="City" value="{{cp_verify_obj.city}}" required />
+          </div>
+          <div>
+            <label class="block text-gray-700 mb-1" for="state">State</label>
+            <input class="border border-gray-300 p-2 rounded w-full" id="state" type="text" name="state" placeholder="State" value="{{cp_verify_obj.state}}" required />
+          </div>
+          <div>
+            <label class="block text-gray-700 mb-1" for="country">Country</label>
+            <input class="border border-gray-300 p-2 rounded w-full" id="country" type="text" name="country" placeholder="Country" value="{{cp_verify_obj.country}}" required />
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+          <div>
+            <label class="block text-gray-700 mb-1" for="area-code">Area Code</label>
+            <input class="border border-gray-300 p-2 rounded w-full" id="area-code" type="text" name="area_code" placeholder="Area Code" value="{{cp_verify_obj.area_code}}" required />
+          </div>
+        </div>
+
+        <!-- Verification Documents -->
+        <h3 class="text-xl font-semibold text-gray-700 mb-2">Verification Documents</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-gray-700 mb-1" for="registration-certificate">Business Registration Certificate</label>
+            <input class="border border-gray-300 p-2 rounded w-full" id="registration-certificate" type="file" name="registration_certificate" required />
+          </div>
+          <div>
+            <label class="block text-gray-700 mb-1" for="tax-id">Tax Identification Number (TIN/GST)</label>
+            <input class="border border-gray-300 p-2 rounded w-full" id="tax-id" type="text" name="tax_id" value="{{companies.cp_gst_no}}" placeholder="TIN/GST Number" required />
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+          
+          <div>
+            <label class="block text-gray-700 mb-1" for="company-logo">Company Logo</label>
+            <input class="border border-gray-300 p-2 rounded w-full" id="company-logo" type="file" name="company_logo" required />
+          </div>
+        </div>
+
+        <!-- Authorized Representative Details -->
+        <h3 class="text-xl font-semibold text-gray-700 mb-2">Authorized reception Details</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-gray-700 mb-1" for="rep-name">Authorized Reception's Name</label>
+            <input class="border border-gray-300 p-2 rounded w-full" id="rep-name" type="text" name="rep_name" placeholder="Name" value="{{cp_verify_obj.rep_name}}" required />
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-gray-700 mb-1" for="rep-phone">Contact Number</label>
+            <input class="border border-gray-300 p-2 rounded w-full" id="rep-phone" type="text" name="rep_phone" placeholder="Phone Number" pattern="[0-9]{10,15}" value="{{cp_verify_obj.rep_designation}}" required />
+          </div>
+          <div>
+            <label class="block text-gray-700 mb-1" for="rep-email">Email ID</label>
+            <input class="border border-gray-300 p-2 rounded w-full" id="rep-email" type="email" name="rep_email" placeholder="Email" value="{{cp_verify_obj.rep_email}}" required />
+          </div>
+        </div>
+
+        <!-- Additional Information -->
+        <h3 class="text-xl font-semibold text-gray-700 mb-2">Additional Information</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-gray-700 mb-1" for="num-employees">Number of Employees</label>
+            <input class="border border-gray-300 p-2 rounded w-full" id="num-employees" type="number" name="num_employees" placeholder="Number of Employees" value="{{cp_verify_obj.num_employees|default_if_none:''}}" required />
+          </div>
+          <div>
+            <label class="block text-gray-700 mb-1" for="year-establishment">Year of Establishment</label>
+            <input class="border border-gray-300 p-2 rounded w-full" id="year-establishment" type="number" name="year_establishment" placeholder="Year" value="{{cp_verify_obj.year_establishment|default_if_none:''}}" required />
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-1" for="company-description">Company Description</label>
+          <textarea class="border border-gray-300 p-2 rounded w-full" id="company-description" placeholder="Describe your company" rows="3" name="company_description" required>{{cp_verify_obj.company_description}}</textarea>
+        </div>
+        <div class="mb-6">
+          <label class="block text-gray-700 mb-1" for="linkedin-profile">LinkedIn Profile (Optional)</label>
+          <input class="border border-gray-300 p-2 rounded w-full" id="linkedin-profile" type="url" name="linkedin_profile" placeholder="LinkedIn URL" value="{{cp_verify_obj.linkedin_profile|default_if_none:''}}" />
+        </div>
+
+        <!-- Terms and Conditions -->
+        <div class="mb-6">
+          <label class="inline-flex items-center">
+            <input class="form-checkbox text-blue-600" type="checkbox" required />
+            <span class="ml-2 text-gray-600">
+              I agree to the
+              <a class="text-blue-600" href="#">terms, conditions, and policies</a>
+            </span>
+          </label>
+        </div>
+
+        <!-- Submit Button -->
+        <div>
+          <button class="bg-blue-600 text-white py-2 px-4 rounded w-full" type="submit">
+            Register Now
+          </button>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

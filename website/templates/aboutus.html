@@ -1,0 +1,27 @@
+
+{% extends 'nav.html' %}
+{% block content %}
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<div class="max-w-5xl mx-auto p-8 bg-white shadow-lg rounded-xl mt-10 border border-gray-200">
+    <h1 class="text-4xl font-extrabold text-center mb-6 text-green-700">About Us</h1>
+    <p class="text-lg text-gray-700 leading-relaxed">
+      Welcome to <span class="font-semibold text-green-600">Job & Tender Portal</span> — a unified platform to bridge job seekers and verified companies while also streamlining the tendering process.
+    </p>
+    <p class="text-lg text-gray-700 mt-4">
+      Our mission is to empower talent and organizations by providing a secure, fast, and transparent medium to discover opportunities.
+      Whether you are searching for your dream job or publishing a new opportunity, our platform simplifies the experience for everyone.
+    </p>
+    <p class="text-lg text-gray-700 mt-4">
+      We value integrity, efficiency, and growth — building a future where access to career and business opportunities is fair and seamless.
+    </p>
+    <div class="mt-8 text-center">
+      <a href="{% url 'home' %}" class="inline-block bg-green-600 text-white px-6 py-3 rounded-full shadow hover:bg-green-700 transition-all duration-300">
+        ⬅ Back to Home
+      </a>
+    </div>
+  </div>
+
+  {% endblock %}

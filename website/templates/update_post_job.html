@@ -1,0 +1,139 @@
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Job Details Form</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center py-10">
+
+  <!-- Back to Home Button -->
+  <div class="mb-6 w-full ml-5 max-w-4xl flex justify-start">
+    <a href="{% url 'home' %}" 
+       class="bg-gray-800 text-white px-5 py-2 rounded-lg hover:bg-gray-900 transition">
+      ⬅ Back to Home
+    </a>
+  </div>
+
+  <!-- Form -->
+  <form action="" method="POST" class="w-full max-w-4xl px-6">
+    {% csrf_token %}
+    <div class="p-6 bg-white shadow-md rounded-md">
+      <h1 class="text-3xl font-bold text-center mb-6">Update Your Posted Job</h1>
+
+      <h4 class="text-2xl font-semibold mb-4">Job Details:</h4>
+
+      <h1 class="text-xl font-semibold mb-4">
+        Job is created by: {{ company.cp_name }}
+      </h1>
+
+      <!-- Job Title -->
+      <div class="mb-4">
+        <label class="block text-gray-700">Job Title:</label>
+        <input class="w-full mt-1 p-2 border border-gray-300 rounded-md"
+               placeholder="Job Title"
+               name="job_title"
+               type="text"
+               value="{{ job.job_title }}" />
+      </div>
+
+      <!-- Job Description -->
+      <div class="mb-4">
+        <label class="block text-gray-700">Job Description:</label>
+        <textarea class="w-full mt-1 p-2 border border-gray-300 rounded-md"
+                  name="job_description"
+                  placeholder="Write Job Description:">{{ job.job_description }}</textarea>
+      </div>
+
+      <!-- Category -->
+      <div class="mb-4">
+        <label class="block text-gray-700">Categories:</label>
+        <select name="category" id="category" class="w-full mt-1 p-2 border border-gray-300 rounded-md">
+          {% for i in categories %}
+            <option value="{{ i.id }}">{{ i.category_name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <!-- Job Type -->
+      <div class="mb-4">
+        <label class="block text-gray-700">Job Type:</label>
+        <select name="job_type" class="w-full mt-1 p-2 border border-gray-300 rounded-md">
+          <option value="Full Time" {% if job.job_type == 'Full Time' %}selected{% endif %}>Full Time</option>
+          <option value="Part Time" {% if job.job_type == 'Part Time' %}selected{% endif %}>Part Time</option>
+          <option value="Freelancer" {% if job.job_type == 'Freelancer' %}selected{% endif %}>Freelancer</option>
+        </select>
+      </div>
+
+      <!-- Salary -->
+      <div class="mb-4">
+        <label class="block text-gray-700">Salary:</label>
+        <input class="w-full mt-1 p-2 border border-gray-300 rounded-md"
+               placeholder="Salary"
+               name="job_salary"
+               type="text"
+               value="{{ job.job_salary }}" />
+      </div>
+
+      <!-- Skills -->
+      <div class="mb-4">
+        <label class="block text-gray-700">Skills:</label>
+        <input class="w-full mt-1 p-2 border border-gray-300 rounded-md"
+               placeholder="Skills"
+               name="job_skils"
+               type="text"
+               value="{{ job.job_skils }}" />
+      </div>
+
+      <!-- Qualifications -->
+      <div class="mb-4">
+        <label class="block text-gray-700">Qualifications:</label>
+        <input class="w-full mt-1 p-2 border border-gray-300 rounded-md"
+               placeholder="Qualifications"
+               name="job_qualification"
+               type="text"
+               value="{{ job.job_qualification }}" />
+      </div>
+
+      <!-- Experience -->
+      <div class="mb-4">
+        <label class="block text-gray-700">Experience:</label>
+        <input class="w-full mt-1 p-2 border border-gray-300 rounded-md"
+               placeholder="Experience"
+               name="job_experience"
+               type="text"
+               value="{{ job.job_experience }}" />
+      </div>
+
+      <!-- Address -->
+      <div class="mb-4">
+        <label class="block text-gray-700">Address:</label>
+        <input class="w-full mt-1 p-2 border border-gray-300 rounded-md"
+               placeholder="Address"
+               name="job_location"
+               type="text"
+               value="{{ job.job_location }}" />
+      </div>
+
+      <!-- Vacancy -->
+      <div class="mb-4">
+        <label class="block text-gray-700">Vacancy:</label>
+        <input class="w-full mt-1 p-2 border border-gray-300 rounded-md"
+               placeholder="Vacancy"
+               name="job_vacancy"
+               type="text"
+               value="{{ job.job_vacancy }}" />
+      </div>
+
+      <!-- Submit -->
+      <div class="text-center">
+        <button class="bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-600 transition">
+          Update Job
+        </button>
+      </div>
+    </div>
+  </form>
+</body>
+</html>

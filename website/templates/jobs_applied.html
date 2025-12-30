@@ -1,0 +1,65 @@
+{% extends 'nav.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs You Applied For</title>
+    <link rel="stylesheet" href="{% static "css/job_applied.css" %}">
+</head>
+<body>
+    <div style="margin-top: 75px;"></div>
+    <div class="container">
+        <h2 class="page-title">Jobs You Applied For</h2>
+        <div class="close">
+        <a href="{% url "home" %}">X</a>
+        </div>
+
+        <!-- Check if jobs have been applied -->
+        {% if applied_jobs %}
+            <div class="table-container">
+                <table class="job-table">
+                    <thead>
+                        <tr>
+                            <th>Job Title</th>
+                            <th>Description</th>
+                            <th>Company</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for application in applied_jobs %}
+                            <tr class="job-row">
+                                <td>{{ application.job.job_title }}</td>
+                                <td>{{ application.job.job_description }}</td>
+                                <td>{{ application.job.company.cp_name }}</td>
+                                <td>{{ application.job.job_location }}</td>
+                                <td class="status-column">
+                                    {% if application.status == 'Pending' %}
+                                        <span class="status-pending">⏳ Pending</span>
+                                    {% elif application.status == 'Shortlisted' %}
+                                        <span class="status-shortlisted">✅ Shortlisted</span>
+                                    {% elif application.status == 'Rejected' %}
+                                        <span class="status-rejected">❌ Rejected</span>
+                                    {% else %}
+                                        <span class="status-default">{{ application.status }}</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="no-jobs">
+                <p>You haven't applied for any jobs yet.</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,210 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5fafe;
+    overflow-y: hidden;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+.body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+   
+   
+}
+.hh{
+    margin-top: -10px;
+}
+.header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color:#00b5ad;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header img {
+    width: 40px;
+    height: 40px;
+}
+
+
+
+.R_div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.L_div {
+    width: 70%;
+    height: auto; /* Adjusted width for better balance */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ 
+   
+}
+.img1 {
+    display: inline;
+    padding-top: 30%;
+    padding-left: 55%;
+    width: 60%;
+    height: auto;
+}
+
+
+.text {
+    display: inline;
+    color: indigo;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    padding-bottom: 15%;
+    text-align: center; /* Center-align the text horizontally */
+    word-wrap: break-word; /* Break long words if necessary */
+    overflow-wrap: break-word; /* Ensure proper word wrapping */
+    max-width: 100%; /* Prevent text from overflowing the container */
+    display: absolute;
+    margin-bottom: 20%;
+    margin-left: 50%;
+  
+}
+
+.form-container {
+  
+
+    margin-bottom: 2.5%;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 90%;
+    width:45%;
+    margin-right:20%;
+    border-radius: 20px;
+ 
+    height: 85%;
+   
+}
+
+
+
+.form-container h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container form label {
+    font-size: 0.9rem;
+    margin-bottom: 0.7rem;
+    color: #333;
+}
+
+.form-container form input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    background: transparent;
+    transition: border-color 0.3s ease;
+}
+
+.form-container form input:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0px 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.form-container form .terms {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.form-container form .terms input {
+    margin-right: 0.5rem;
+}
+
+.form-container form button {
+    padding: 0.75rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #00b5ad;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-container form button:hover {
+    background-color: #0056b3;
+}
+
+.form-container .login-link {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.form-container .login-link a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.form-container .login-link a:hover {
+    text-decoration: underline;
+}
+
+.title {
+    font-size: 20px;
+    color: indigo;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.img1 {
+    width: 80%;
+    height: auto;
+    margin-top: 20px;
+}
+.cancel-button {
+    position: absolute;
+    
+    top: 8%;
+    right: 21%;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.cancel-button:hover {
+    color: red;
+}
+

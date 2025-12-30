@@ -1,0 +1,124 @@
+{% extends 'nav.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Search Body</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <div class="space"> </div>
+
+    {% if u_registered or loggedin_user %}
+        <section class="hero">
+            <div class="content">
+                <h1>Welcome To <span style="color: #00b5ad;">{{ loggedin_user }}</span></h1>
+                <h1>Find a Job With Your Interests and Abilities</h1>
+                <p>Find jobs that match your interests with us. Hiresphere provides a place to find your dream job.</p>
+                <div class="search">
+                    <form method="GET" action="{% url 'home' %}">
+                        <input type="text" name="search" value="{{ query }}" placeholder="Search categories..." required>
+                        <button type="submit">Search</button>
+                          
+                       
+                    </form>
+                    <a href="{% url 'home' %}">
+                        <button type="submit">See All</button>
+                    </a> 
+                </div>
+            </div>
+            <div>
+                <img class="userimage" src="{% static 'img/main.png' %}" alt="" />
+            </div>
+        </section>
+
+        <div class="main-thing"></div>
+        <div class="container">
+            {% if cat %}
+                {% for i in cat %}
+                <div class="job-card full-time">
+                    {% comment %} <div class="badge">{{ i.job_type }}</div> {% endcomment %}
+                    <div class="icon">
+                        <a href="#x"><img src="{{ i.image.url }}" alt="Job Icon"></a>
+                    </div>
+                    <h3>{{ i.category_name }}</h3>
+                    <p>{{ i.category_description }}</p>
+                    <a href="{% url "jobs" i.id i.category_name %}"><button>See Jobs</button></a>
+                </div>
+                {% endfor %}
+            {% else %}
+            <p class="text-gray-600 text-center max-w-md mb-6">
+                We couldn’t find any jobs matching  
+                Try adjusting your search or explore all available categories.
+            </p>
+            {% endif %}
+        </div>
+
+    {% elif c_registered or loggedin_company or success %}
+        <section class="hero">
+            <div class="content">
+                <h1>Welcome To <span style="color: #00b5ad;">{{ loggedin_company }}</span></h1>
+                <h2>  finding a right telent for your company is a big task. We are here to help you in finding the right talent for your company.</h2>
+                <p>Find jobs that match your interests with us. Jabang provides a place to find your dream job.</p>
+              
+                <a href="{% url 'post_job' %}"><button>Post Job</button></a>
+            </div>
+            <div>
+                <img class="cpimage" src="{% static 'img/cp.png' %}" alt="" />
+            </div>
+        </section>
+
+    {% else %}
+        <section class="hero">
+            <div class="content">
+                <h1>Find a Job With Your Interests and Abilities</h1>
+                <p>Find jobs that match your interests with us. Jabang provides a place to find your dream job.</p>
+                <div class="search">
+                    <form method="GET" action="{% url 'home' %}">
+                        <input type="text" name="search" value="{{ query }}" placeholder="Search categories..." required>
+                        <button type="submit">Search</button>
+                        
+                    </form>
+                    <a href="{% url 'home' %}">
+                        <button type="submit">See All</button>
+                    </a> 
+                </div>
+            </div>
+            <div>
+                <img class="userimage" src="{% static 'img/main.png' %}" alt="" />
+            </div>
+        </section>
+
+
+        <div class="container">
+            {% if cat %}
+                {% for i in cat %}
+                <div class="job-card full-time">
+                    {% comment %} <div class="badge">{{ i.job_type }}</div> {% endcomment %}
+                    <div class="icon">
+                        <a href="#x"><img src="{{ i.image.url }}" alt="Job Icon"></a>
+                    </div>
+                    <h3>{{ i.category_name }}</h3>
+                    <p>{{ i.category_description }}</p>
+                    <a href="{% url "jobs" i.id i.category_name %}"><button>See Jobs</button></a>
+                </div>
+                {% endfor %}
+            {% else %}
+            <p class="text-gray-600 text-center max-w-md mb-6">
+                We couldn’t find any jobs matching <span class="font-semibold text-red-500">"{{ query }}"</span>. 
+                Try adjusting your search or explore all available categories.
+            </p>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <footer class="footer">
+        &copy; 2025 Job Search. All rights reserved.
+    </footer>
+</body>
+</html>
+{% endblock %}
