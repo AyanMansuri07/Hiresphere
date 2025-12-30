@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h2{
+    margin-left: 50%;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    /* margin: 20px; */
+    padding: 0;
+    box-sizing: border-box;
+}
+table {
+    margin-left: 17%;
+    width: 80%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+}
+th {
+    background-color: #f4f4f4;
+}
+.tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    color: #fff;
+}
+.electricity { background-color: #c05b95; }
+.water { background-color: #5b8ec0; }
+.status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+.pending { background-color: #ffebcc; color: #b38f00; }
+.approved { background-color: #ccf2d7; color: #2d8659; }
+@media (max-width: 768px) {
+    th, td {
+        padding: 8px 10px;
+    }
+}
+.status.new-company {
+    background-color: #3498db; /* Blue */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}

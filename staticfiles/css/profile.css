@@ -1,0 +1,254 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5fafe;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Header Styles */
+.header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #00b5ad;
+}
+
+/* Main Section */
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 22px;
+    background: linear-gradient(to right, #f5ebe0 50%, #f3db94 50%);
+}
+
+/* Card Styling */
+.card {
+    display: flex;
+    width: 100%;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    background-color: #bde0fe;
+    overflow: hidden;
+    padding: 2rem;
+}
+
+/* Card Left Section */
+.card-left {
+    margin: 0;
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.card-left img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.card-left h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 20px 0;
+}
+
+/* Input Fields */
+.card-left input {
+    width: 100%;
+    max-width: 200px;
+    min-width: 150px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+    transition: border-color 0.3s ease;
+    outline: none;
+    text-align: center;
+}
+
+.card-left input:focus {
+    border-color: #00b5ad;
+}
+
+.card-left button {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    background: #d89460;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card-left button:hover {
+    background-color: #c47a4f;
+}
+
+/* Card Right Section */
+.card-right {
+    flex: 1;
+    background: #f9e7dd;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 5%;
+}
+
+.card-right h3 {
+    font-size: 18px;
+    color: #333;
+}
+
+.card-right .phone input,
+.card-right .address input,
+.card-right .gender input {
+    width: 100%;
+    max-width: 200px;
+    min-width: 150px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+    outline: none;
+    text-align: center;
+}
+
+.btn1 {
+    width: 100%;
+    padding: 12px 0;
+    background: #00b5ad;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn1:hover{
+    background-color: #009f92;
+}
+
+/* Text and Label Styling */
+label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    display: block;
+    text-align: center;
+
+}
+
+h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+}
+
+input.dynamicInput {
+    /* padding: 5px; */
+    box-sizing: border-box;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 150px;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+  
+}
+
+input.dynamicInput:focus {
+    border-color: #00b5ad;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active {
+    background-color: #c47a4f;
+}
+
+button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+.cancel-button {
+    position: absolute;
+    right: 25.5%;
+    top:10%;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.cancel-button:hover {
+    color: red;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-left, .card-right {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .card-left img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .card-left input,
+    .card-right input {
+        width: 100%;
+        max-width: 100%;
+    }
+}

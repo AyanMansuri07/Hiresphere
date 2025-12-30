@@ -1,0 +1,203 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+header {
+    background-color: #ffffff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    position: fixed;
+    width: 98%;
+    z-index: 1000;
+    top: 0;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00b5ad;
+}
+
+header nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+header .buttons a {
+    text-decoration: none;
+    margin-left: 15px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #00b5ad;
+    font-weight: bold;
+}
+
+.dropdown {
+    position: relative;
+    margin-right: 30px;
+    display: inline-block;
+}
+
+.dropdown .profile-button {
+    text-decoration: none;
+    padding: 0;
+    width: 40px;
+    height: 40px; /* Ensure it's the same as width for a perfect circle */
+    border-radius: 50%; /* This makes it a circle */
+    background-color: #00b5ad;
+    color: #fff;
+    font-weight: bold;
+    margin-right: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centers any content inside */
+
+
+}
+.dropdown .profile-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the circle */
+    border-radius: 50%; /* Makes the image rounded */
+}
+
+.profile_css{
+    height: fit-content;
+    width: fit-content;
+    size: cover;
+}
+
+
+
+/* Add hover effect for the profile button */
+.profile-button:hover {
+background-color: #019c96; 
+
+}
+
+
+.dropdown-menu {
+display: none; /* Initially hidden */
+position: absolute;
+top: 30px;
+left: 0;
+background-color: #f5fafe; /* White background */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+border-radius: 5px;
+padding: 10px 0;
+z-index: 1000; /* Ensures it appears above other elements */
+width: 127px /* Ensures dropdown has a minimum width */
+
+}
+
+
+.dropdown-menu a {
+display: block; /* Each link takes up full width */
+padding: 10px 20px; /* Add spacing inside links */
+text-decoration: none; /* Remove underline */
+color: #333; /* Neutral text color */
+font-weight: 500;
+transition: background-color 0.2s ease; /* Smooth hover effect */
+background-color:white;
+width: 50%;
+gap: 10px;
+margin-bottom: 5px;
+}
+
+.dropdown-menu a:hover {
+
+background-color: #259794;
+border-radius: 15px;
+gap: 10px;
+margin-top: 5px;
+        
+}
+
+
+.dropdown:hover .dropdown-menu {
+display: block; /* Make menu visible */
+border-radius: 15px;
+}
+
+/* Notification Container */
+.notification-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Bell Icon Styling */
+.notification-icon {
+    position: relative;
+    font-size: 24px;
+}
+
+/* Notification Count (Red Badge) */
+.notification-count {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+    display: none; /* Hidden by default */
+}
+
+/* Dropdown Styling */
+.notification-dropdown {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 250px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: none; /* Hidden by default */
+    list-style: none;
+    padding: 0;
+    z-index: 1000;
+}
+
+/* Dropdown Items */
+.notification-dropdown li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.notification-dropdown li:last-child {
+    border-bottom: none;
+    text-align: center;
+}
+
+/* Hover Effect */
+.notification-container:hover .notification-dropdown {
+    display: block;
+}
+
+.notification-container:hover .notification-count {
+    display: inline;
+}
+
+/* "See All Applicants" Link */
+.view-all {
+    color: blue;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.view-all:hover {
+    text-decoration: underline;
+}

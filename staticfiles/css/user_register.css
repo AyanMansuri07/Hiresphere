@@ -1,0 +1,217 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5fafe;
+   
+    overflow-y: hidden;
+}
+
+.hh{
+    margin-top: 4px;
+}
+.body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+   
+}
+
+.form-container {
+  
+
+    margin-top: 32px;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 90%;
+    width:52%;
+    margin-left: 30%;
+    border-radius: 20px;
+    /* max-height: 100%; */
+    height: 103%;
+   
+}
+
+
+
+.form-container h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container form label {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+    color: #333;
+}
+
+.form-container form input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    background: transparent;
+    transition: border-color 0.3s ease;
+}
+
+.form-container form input:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0px 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.form-container form .terms {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.form-container form .terms input {
+    margin-right: 0.5rem;
+}
+
+.form-container form button {
+    padding: 0.75rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #00b5ad;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-container form button:hover {
+    background-color: #0056b3;
+}
+
+.form-container .login-link {
+    margin-top: 0.2rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.form-container .login-link a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.form-container .login-link a:hover {
+    text-decoration: underline;
+}
+
+.L_div {
+    width: 65%;
+    height: 80%;
+    margin: auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: -80px;
+    margin-left: 80px;
+}
+
+.R_div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width:100;
+    height: 80%;
+    margin: auto 0;
+    align-items: center;
+    gap: 0%;
+   
+}
+
+.img1 {
+  
+    width: 75%;
+    height: auto;
+    padding-top: 25%;
+    padding-right: 25%;
+
+   
+}   
+
+
+.text {
+    color: indigo;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    padding-bottom: 10%;
+    text-align: center; /* Center-align the text horizontally */
+    word-wrap: break-word; /* Break long words if necessary */
+    overflow-wrap: break-word; /* Ensure proper word wrapping */
+    max-width: 100%; /* Prevent text from overflowing the container */
+    padding-right: 25%;
+    padding-bottom: 25%;
+}
+
+.header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00b5ad;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header img {
+    width: 40px;
+    height: 40px;
+}
+
+.cancel-button {
+    position: absolute;
+    top: 10%;
+   
+    right: 51%;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.cancel-button:hover {
+    color: red;
+}
+
+.h2{
+    color: red;
+}
+.radio-group{
+    margin-top: -18px;   
+}
+/* Style the radio buttons to display inline */
+.radio-group label {
+    display: inline-block;
+    margin-right: 20px; /* Adjust spacing between radio buttons */
+}
+
+/* Optional: Style the radio button and text for better visibility */
+.radio-group input[type="radio"] {
+    margin-right: 5px;
+}

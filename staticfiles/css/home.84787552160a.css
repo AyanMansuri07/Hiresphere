@@ -1,0 +1,298 @@
+body {
+    /* margin: 0; */
+    margin-left: 0.2%;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5fafe;
+    color: #333;
+
+    overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+.space{
+    margin-top: 40px;
+}
+.userimage{
+    margin-right: 200px;
+ 
+    height:80%;
+    width: 80%;
+}
+.cpimage{
+    margin-top: 10%;
+    margin-left: 20%;
+ 
+    height:80%;
+    width: 70%;
+}
+/* for letestjob and recent job button */
+/* listing field */
+
+.main-thing {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    z-index: -1;
+    
+}
+
+
+.tab-container {
+    display: flex;
+    border: 2px solid #28a745;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #28a745;
+    box-shadow: 0 4px 10px 0 rgba(0, 4, 7, 0.5);
+    z-index: 1;
+}
+.add{
+    width: 145px;
+}
+.tab-button {
+    flex: 1;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    border-left: 2px solid#fff;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tab-button.active {
+   
+    color: #fff;
+    border: none;
+}
+
+.tab-button:hover
+{
+    background-color: #fff;
+    color:#1fb650;
+}
+
+/*end of coe*/
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px;
+}
+
+.hero .content {
+    margin-left: 30px;
+    max-width: 50%;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.hero button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00b5ad;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.search {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.search select, .search input, .search button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.partners {
+    padding: 20px;
+    text-align: center;
+}
+
+.partners img {
+    margin: 10px;
+    max-height: 50px;
+}
+
+.how-it-works {
+    padding: 50px;
+    background-color: #f5fafe;
+    text-align: center;
+}
+
+.how-it-works h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #00b5ad;
+    color: white;
+    padding-left: 20px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px; /* Matches spacing between cards in the image */
+    padding: 30px; /* Consistent padding for the grid container */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.job-card {
+    
+
+    background-color: #fff;
+    padding: 60px 0 20px 0;
+    border: 1px solid #eaeff5;
+    box-shadow: 0 4px 10px 0 rgba(41, 128, 185, 0.25);
+    -webkit-box-shadow: 0 4px 10px 0 rgba(41, 128, 185, 0.07);
+    border-radius: 6px;
+    text-align: center;
+    overflow: hidden;
+    transition: .7s;
+    margin-bottom: 30px;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+    border-radius: 15px ;
+    max-height: 100%;
+
+    
+}
+
+.job-card:hover {
+    transform: translateY(-15px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+}
+
+.job-card .badge {
+
+
+    padding: 0px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    line-height: 23px;
+    font-weight: 600;
+    display: inline-block;
+    text-transform: uppercase;
+    border: 1px solid #eaeff5;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+.job-card.full-time .badge {
+    /* background-color: #28a745;  */
+    color: #1fb650 !important;
+    border-color: rgba(31, 182, 80, 0.12) !important;
+    background: rgba(31, 182, 80, 0.12);
+    padding: 0px 7px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+.job-card.part-time .badge {
+    /* background-color: #ffc107; */
+    color: #feb801 !important;
+    border-color: rgba(254, 184, 1, 0.1) !important;
+    background: rgba(254, 184, 1, 0.1);
+    padding: 0px 7px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+.job-card.internship .badge {
+    /* background-color: #dc3545;  */
+    color: #f21136 !important;
+    border-color: rgba(242, 17, 54, 0.1) !important;
+    background: rgba(242, 17, 54, 0.1);
+    padding: 0px 7px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+.job-card .icon img {
+    margin-top: 10px;
+    max-width:205px; 
+    margin-left:50px;
+    height: 10pc;
+    border-radius: 20px;
+    /* margin-bottom: 200px;   */
+    /* max-height: fit-content; */
+   
+}
+
+.job-card h3 {
+    font-size: 18px;
+    color: #333;
+    font-weight: 600;
+    padding-top: 1px;
+
+}
+.space-betweem{
+    margin-top: 60px;
+}
+.job-card p {
+    color: #8492af;
+    font-size: 13px;
+    margin-bottom: 15px; 
+}
+
+.job-card button {
+    font-size: 12px;
+    padding: 8px 15px;
+    border: 2px solid #26ae61 !important;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #26ae61;
+    border-radius: 4px;
+    background: none;
+
+}
+.job-card button:hover {
+    background-color: #26ae61;
+    color: white;
+    transform: scale(1.05); /* Slight zoom effect */
+} 
+
+/* For the favorite heart icon */
+.job-card .favorite {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #ff4d4d; /* Red for the heart icon */
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.job-card .favorite:hover {
+    transform: scale(1.2); /* Slight enlargement on hover */
+}
